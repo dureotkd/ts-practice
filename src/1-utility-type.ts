@@ -122,3 +122,35 @@ async function getJobName(id: number): Promise<string> {
 }
 
 // =========================== Parital ===========================
+
+// =========================== Partial 구현해보기 <제네릭> ===========================
+
+interface User {
+  id: number;
+  name: string;
+  userId: string;
+  userPw: string;
+}
+
+// #1
+type UserType1 = {
+  id: User["id"];
+  name: User["name"];
+  userId: User["userId"];
+  userPw: User["userPw"];
+};
+
+// #2
+type UserType2 = {
+  [p in "id" | "name" | "userId" | "userPw"]?: User[p];
+};
+
+// #3
+type UserType3 = {
+  [p in keyof User]?: User[p];
+};
+
+// #4 (끝판왕) 제네릭 활용
+type Subset<T> = {
+  [p in keyof T]?: T[p];
+};
