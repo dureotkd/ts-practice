@@ -75,3 +75,50 @@ async function getFetchBookDetail(
 }
 
 // =========================== Omit ===========================
+
+// =========================== Parital ===========================
+
+interface Job {
+  id: number;
+  category: string;
+  name: string;
+  averageAge: number;
+  averagePrice: number;
+}
+
+type mayHaveCategory = Partial<Job>;
+const jobCategory: mayHaveCategory = {};
+const jobCategory2: mayHaveCategory = {
+  category: "service",
+};
+
+async function getJobs(): Promise<Job[]> {
+  return [
+    {
+      id: 1,
+      category: "IT",
+      name: "프론트엔드 개발자",
+      averageAge: 35,
+      averagePrice: 3500,
+    },
+    {
+      id: 2,
+      category: "IT",
+      name: "백엔드 개발자",
+      averageAge: 35,
+      averagePrice: 3700,
+    },
+  ];
+}
+
+async function getJobName(id: number): Promise<string> {
+  const job = (await getJobs()).find((item) => item.id === id);
+
+  if (job === undefined) {
+    throw new Error("empty job");
+  }
+
+  return job.category;
+}
+
+// =========================== Parital ===========================

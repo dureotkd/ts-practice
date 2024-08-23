@@ -102,4 +102,46 @@ function getFetchBookDetail(id) {
         });
     });
 }
-// =========================== Omit ===========================
+var jobCategory = {};
+var jobCategory2 = {
+    category: "service",
+};
+function getJobs() {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            return [2 /*return*/, [
+                    {
+                        id: 1,
+                        category: "IT",
+                        name: "프론트엔드 개발자",
+                        averageAge: 35,
+                        averagePrice: 3500,
+                    },
+                    {
+                        id: 2,
+                        category: "IT",
+                        name: "백엔드 개발자",
+                        averageAge: 35,
+                        averagePrice: 3700,
+                    },
+                ]];
+        });
+    });
+}
+function getJobName(id) {
+    return __awaiter(this, void 0, void 0, function () {
+        var job;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, getJobs()];
+                case 1:
+                    job = (_a.sent()).find(function (item) { return item.id === id; });
+                    if (job === undefined) {
+                        throw new Error("empty job");
+                    }
+                    return [2 /*return*/, job.category];
+            }
+        });
+    });
+}
+// =========================== Parital ===========================
