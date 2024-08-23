@@ -61,3 +61,45 @@ function fetchProductDetail() {
         });
     });
 }
+function fetchBooks() {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            return [2 /*return*/, [
+                    {
+                        id: 1,
+                        title: "어린왕자",
+                        author: "생텍쥐페리",
+                        price: 1000,
+                        category: "소설",
+                    },
+                    {
+                        id: 2,
+                        title: "해리포터",
+                        author: "J.K롤링",
+                        price: 2000,
+                        category: "소설",
+                    },
+                ]];
+        });
+    });
+}
+function getFetchBookDetail(id) {
+    return __awaiter(this, void 0, void 0, function () {
+        var book;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, fetchBooks()];
+                case 1:
+                    book = (_a.sent()).find(function (item) { return item.id === id; });
+                    if (book === undefined) {
+                        throw new Error("book undefined");
+                    }
+                    return [2 /*return*/, {
+                            id: book === null || book === void 0 ? void 0 : book.id,
+                            title: book === null || book === void 0 ? void 0 : book.title,
+                        }];
+            }
+        });
+    });
+}
+// =========================== Omit ===========================
