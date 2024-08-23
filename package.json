@@ -1,0 +1,13 @@
+{
+  "name": "ts-practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "kevin <dureotkd123@naver.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "global": "^4.4.0"
+  }
+}
